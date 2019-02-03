@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+shopt -s extglob
+set -o errtrace
+set -o errexit
+
+wpy_install()
+{
+  echo '<<< wpy_install_initialize >>>'
+  WPY_PATH="$HOME/.wpy"
+  WPY_BIN="$WPY_PATH/wpy"
+  mkdir -p $WPY_PATH
+  wget -qN https://raw.githubusercontent.com/mike3dk/wpy/master/wpy -P $WPY_PATH
+  chmod 755 "$WPY_BIN"
+  echo PATH=\$PATH:$WPY_PATH >> "$HOME/.bash_profile"
+}
+
+wpy_install "$@"
