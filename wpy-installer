@@ -10,7 +10,7 @@ wpy_install()
   WPY_PATH="$HOME/.wpy"
   WPY_BIN="$WPY_PATH/wpy"
   mkdir -p $WPY_PATH
-  wget -qN https://raw.githubusercontent.com/mike3dk/wpy/master/wpy -P $WPY_PATH
+  curl -s https://raw.githubusercontent.com/mike3dk/wpy/master/wpy > $WPY_BIN
   chmod 755 "$WPY_BIN"
   echo PATH=\$PATH:$WPY_PATH >> "$HOME/.bash_profile"
 }
